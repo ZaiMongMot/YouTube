@@ -1,37 +1,60 @@
 /**
- * Sample React Native App
+ * JYoutube
  * https://github.com/facebook/react-native
  * @flow
  */
 
 import React, { Component } from 'react';
 import {
-  Platform,
+  Image,
+  TouchableHighlight,
+  TouchableOpacity,
+  ScrollView,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'ThangPV',
-});
+import {StackNavigator} from 'react-navigation';
+import YouTube from 'react-native-youtube';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-type Props = {};
-export default class App extends Component<Props> {
+
+const apiKey = 'AIzaSyCgIeTOMVozORhVbEgwoC84mSat7cilBX4';
+const channelId = 'UCQzdMyuz0Lf4zo4uGcEujFw';
+const results = 30;
+export default class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      data:[]
+    }
+  }
+
+  componentDidMount(){
+    fetch(`https://www.googleapis.com/youtube/v3/search/?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${results}`)
+    .then(res => res.json())
+    .then(res => {
+      const videoId = []
+      res.items.forEach(item => {
+        videoId.push(item);
+      })
+      this.setState({
+        data:videoId
+      })
+    })
+    .catch(error =>{
+      console.error(error);
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
+          Still working
         </Text>
       </View>
     );
@@ -44,15 +67,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
