@@ -96,6 +96,7 @@ export default class App extends Component<Props> {
           {this.state.data.map((item, i) =>
             <TouchableHighlight
               key ={item.id.videoId}
+              onPress = {() => console.log("OnPress item to view")}
               //onPress={()=> navigate ('YouTubeVideo', {youtubeId: item.id.videoId})} 
               >
               <View style = {styles.vids}>
