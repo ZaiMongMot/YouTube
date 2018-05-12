@@ -1,25 +1,25 @@
 import React from 'react';
 import {StyleSheet,View} from 'react-native'
-import {StackNavigator} from 'react-navigation'
+// import {StackNavigator} from 'react-navigation'
 import YouTube from 'react-native-youtube'
 
 export default class YouTubeVideo extends React.Component {
 
-    static navigationOptions = {
-        headerTitle: 'YouTube',
-        headerStyle: {
-            backgroundColor: '#000'
-        },
-        headerTitleStyle: {
-            color: '#fff'
-        }
-    }
+    // static navigationOptions = {
+    //     headerTitle: 'YouTube',
+    //     headerStyle: {
+    //         backgroundColor: '#000'
+    //     },
+    //     headerTitleStyle: {
+    //         color: '#fff'
+    //     }
+    // }
 
     render() {
         return ( 
         <View style = {styles.container} >
             <YouTube 
-                videoId = {this.props.navigation.state.params.youtubeId}
+                // videoId = {this.props.navigation.state.params.youtubeId}
                 play = {true}
                 fullscreen = {true}
                 loop = {false}

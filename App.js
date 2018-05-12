@@ -15,53 +15,17 @@ import {
   View
 } from 'react-native';
 
-// import {StackNavigator} from 'react-navigation';
 import YouTube from 'react-native-youtube';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
-import YouTubeVideo from './src/YouTubeVideo';
+// import YouTubeVideo from './src/YouTubeVideo';
 
-const apiKey = 'AIzaSyCgIeTOMVozORhVbEgwoC84mSat7cilBX4';
-const channelId = 'UCQzdMyuz0Lf4zo4uGcEujFw';
+// const apiKey = 'AIzaSyCgIeTOMVozORhVbEgwoC84mSat7cilBX4';
+const apiKey = 'AIzaSyBcC49C1adcK2fVGX5SU6srh_vupNHZY2Q';
+const channelId = 'UCllewj2bGdqB8U9Ld15INAg';
 const results = 30;
 
-// export default screens = StackNavigator({
-//   Home:{screen: App},
-//   YouTubeVideo: {screen:YouTubeVideo}
-// })
- type Props={};
-export default class App extends Component<Props> {
-
-  // static navigationOptions = {
-  //   headerStyle:{
-  //     backgroundColor: '#fff',
-  //   },
-  //   headerLeft:(
-  //     <TouchableOpacity>
-  //       <Image 
-  //         style = {{height: 22, width:98, color:'#fff', marginLeft: 25}}
-  //         source={ require('./images/YouTube_logo.png')}
-  //       />
-  //     </TouchableOpacity>
-  //   ),
-  //   headerRight:(
-  //     <View style = {{flexDirection: 'row', marginRight: 20}}>
-  //       <TouchableOpacity style={{paddingHorizontal:5}}>
-  //         <Icon name = 'cast-connected' size={25} color = {'#555'}/>
-  //       </TouchableOpacity>
-  //       <TouchableOpacity style={{paddingHorizontal:5}}>
-  //         <Icon name = 'videocam' size={25} color = {'#555'}/>
-  //       </TouchableOpacity>
-  //       <TouchableOpacity style={{paddingHorizontal:5}}>
-  //         <Icon name = 'search' size={25} color = {'#555'}/>
-  //       </TouchableOpacity>
-  //       <TouchableOpacity style={{paddingHorizontal:5}}>
-  //         <Icon name = 'account-circle' size={25} color = {'#555'}/>
-  //       </TouchableOpacity>
-  //     </View>
-  //   ),
-  // }
-
+export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -74,7 +38,6 @@ export default class App extends Component<Props> {
     .then(res => res.json())
     .then(res => {
       const videoId = [];
-      console.log(res);
       res.items.forEach(item => {
         videoId.push(item)
       });
@@ -88,9 +51,10 @@ export default class App extends Component<Props> {
   }
 
   render() {
-    //const{navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
+        {/* <Text>ThangPV</Text> */}
+
         <ScrollView>
           <View style = {styles.body}>
           {this.state.data.map((item, i) =>

@@ -1,21 +1,26 @@
 import React from 'react';
-import {View, Text, ActivityIndicator, StyleSheet} from 'react-native';
+import {
+    View,
+    Text,
+    ActivityIndicator,
+    StyleSheet
+} from 'react-native';
 
-export default class Loading extends React.Component{
-    render(){
+export default class Loading extends React.Component {
+    render() {
         return (
-            <View>
-                <Text>Loading...</Text>
-                <ActivityIndicator size="large"/>
-            </View>
-        );  
+            <View style = {styles.container}>
+            <Text> Loading </Text> 
+            <ActivityIndicator size = "large" />
+        </View>
+        )
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-});
+    }
+})
